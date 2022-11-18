@@ -13,6 +13,7 @@ require (
 	github.com/go-gorp/gorp/v3 v3.1.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/google/uuid v1.3.0
+	github.com/jinzhu/copier v0.3.5 // indirect
 	github.com/joho/godotenv v1.4.0
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
 	github.com/rubenv/sql-migrate v1.2.0

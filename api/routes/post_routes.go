@@ -2,12 +2,8 @@ package routes
 
 import (
 	"clean-architecture/api/controllers"
-	"clean-architecture/api/responses"
 	"clean-architecture/infrastructure"
 	"clean-architecture/lib"
-	"net/http"
-
-	"github.com/gin-gonic/gin"
 )
 
 type PostRoutes struct {
@@ -33,12 +29,10 @@ func (pr PostRoutes) Setup() {
 
 	api := pr.handler.Group("/")
 	{
-		api.GET("/posts/:id", func(ctx *gin.Context) {
-			responses.JSON(ctx, http.StatusOK, "Api to get post")
-		})
-
-		api.POST("/posts", func(ctx *gin.Context) {
-			responses.JSON(ctx, http.StatusOK, "Api to create post")
-		})
+		api.GET("/posts", pr.postController.GetPosts)
+		api.GET("/posts/:id", pr.postController.GetOnePost)
+		api.POST("/posts", pr.postController.SavePost)
+		api.PUT("/posts/:id", pr.postController.UpdatePost)
+		api.DELETE("/posts/:id", pr.postController.DeletePost)
 	}
 }
